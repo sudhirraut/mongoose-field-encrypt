@@ -1,0 +1,71 @@
+{
+  "author": {
+    "name": "Sudhir Raut",
+    "email": "sudhir.raut@iauro.com"
+  },
+  "bundleDependencies": false,
+  "contributors": [],
+  "deprecated": false,
+  "description": "A simple symmetric encryption plugin(modified varsion of mongoose-field-encryption) for individual fields with the dynamic secret keys in the query options",
+  "devDependencies": {
+    "bluebird": "3.7.2",
+    "chai": "4.2.0",
+    "coveralls": "3.0.9",
+    "mocha": "6.2.2",
+    "mongoose": "5.8.7",
+    "nyc": "15.0.0",
+    "release-it": "12.4.3",
+    "sinon": "8.0.4"
+  },
+  "files": [
+    "lib/"
+  ],
+  "keywords": [
+    "mongoose",
+    "encryption",
+    "field",
+    "cqrs",
+    "string",
+    "encrypt",
+    "security",
+    "search",
+    "searchable",
+    "mongo"
+  ],
+  "license": "MIT",
+  "main": "lib/mongoose-field-encrypt.js",
+  "name": "mongoose-field-encrypt",
+  "peerDependencies": {
+    "mongoose": ">=4.11.0"
+  },
+  "release-it": {
+    "hooks": {
+      "before:init": "npm run test:auth",
+      "before:bump": null,
+      "after:bump": null,
+      "before:release": null,
+      "after:release": "git describe --abbrev=0 --tags"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "gitlab": {
+      "release": false
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudhirraut/mongoose-field-encrypt.git"
+  },
+  "scripts": {
+    "release-it": "release-it",
+    "test": "mocha",
+    "test-coverage": "nyc --reporter=html --reporter=text ./node_modules/mocha/bin/_mocha && chromium-browser ./coverage/index.html",
+    "test-coverage:auth": "URI='mongodb://mfe:mfe@127.0.0.1:27017/mongoose-field-encrypt-test' nyc --reporter=html --reporter=text ./node_modules/mocha/bin/_mocha && chromium-browser ./coverage/index.html",
+    "test:auth": "URI='mongodb://mfe:mfe@127.0.0.1:27017/mongoose-field-encrypt-test' npm test"
+  },
+  "version": "1.3.0"
+}
