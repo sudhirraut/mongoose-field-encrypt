@@ -1,14 +1,14 @@
 # mongoose-field-encrypt
-[mongoose-field-encrypt](https://github.com/sudhirraut/mongoose-field-encrypt.git) is modified version of the package [mongoose-field-encryption](https://github.com/wheresvic/mongoose-field-encryption).
+[mongoose-field-encrypt](https://github.com/sudhirraut/mongoose-field-encrypt.git) is a modified version of the package [mongoose-field-encryption](https://github.com/wheresvic/mongoose-field-encryption).
 
-A simple symmetric encryption plugin for imndividual fields. The goal of this plugin is to encrypt data but still allow searching over fields with string values. This plugin relies on the Node `crypto` module. Encryption and decryption happen transparently during save and find.
+A simple symmetric encryption plugin for individual fields. The goal of this plugin is to encrypt data but still allow searching over fields with string values. This plugin relies on the Node `crypto` module. Encryption and decryption happen transparently during save and find.
 
 While this plugin works on individual fields of any type, note that for non-string fields, the original value is set to undefined after encryption. This is because if the schema has defined a field as an array, it would not be possible to replace it with a string value.
 
 As of the stable 2.3.0 release, this plugin requires provision of a custom salt generation function (which would always provide a constant salt given the secret) in order to retain symmetric decryption capability.
 
 Also consider [mongoose-encryption](https://github.com/joegoldbeck/mongoose-encryption) if you are looking to encrypt the entire document.
-Also consider [mongoose-field-encryption](https://github.com/wheresvic/mongoose-field-encryption) if you are looking to encrypt all the documents within a collection and it's fields with the same static secret key.
+Also consider [mongoose-field-encryption](https://github.com/wheresvic/mongoose-field-encryption) if you are looking to encrypt all the documents within a collection and it's fields with the single static secret key.
 
 ## How it works
 
